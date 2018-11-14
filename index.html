@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="css/reveal.css" />
+    <link rel="stylesheet" href="css/theme/night.css" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css" />
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi) ? "css/print/pdf.css" : "css/print/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h3>Intro to Website Application</h3>
+          <p>with</p>
+          <div>
+            <img src="lib/assets/Ruby.png" width="200px" style="margin-right: 50px; margin-bottom:0" />
+            <span style="padding-bottom: 10px; font-size: 75px">on</span>
+            <img src="lib/assets/Ruby_On_Rails_Logo.svg.png" width="400px" style="margin-left: 50px; margin-bottom:0" />
+          </div>
+          <!-- <a href="http://google.com" style="padding-top: 100px">http://lorem.ipsum</a> -->
+        </section>
+        <section>
+          <h4>Overview</h4>
+          <ol>
+            <li class="fragment">What is a Website Application (Web App)?</li>
+            <li class="fragment">How does a Web App operate?</li>
+            <li class="fragment">The Model-View-Controller architecture (MVC)</li>
+            <li class="fragment">Rails Web App</li>
+          </ol>
+        </section>
+        <section>
+          <section><h2>What is a Website Application (Web App)?</h2></section>
+          <section>...A little bit of history</section>
+          <section>
+            <h3>Static Website</h3>
+            <p class="fragment" style="text-align: left">In the early age of web development, we need a way display data to our users</p>
+            <p class="fragment" style="text-align: left">thus static website was created, built with HTML/CSS &amp JavaScript, to serve users a set of defined content</p>
+          </section>
+          <section>
+            <h3>Problem Arise</h3>
+            <p class="fragment" style="text-align: left">As the internet become more popular, we want to do even more complex things with our website</p>
+            <ul style="text-align: left">
+            <li class="fragment">What if we want to show/serve user different content depends on who they are?</li>
+            <li class="fragment">What if we want to have more interaction between our users and our content?</li>
+            <li class="fragment">What if we want to process data &amp user inputs through the content we provided?</li>     
+            </ul>
+          </section>
+          <section>
+            <h3>Enter Website Application</h3>
+            <p class="fragment" style="text-align: left">Website Application (or Web App) was created to solve these problems</p>
+            <p class="fragment" style="text-align: left">At its core, Web App is simply just a website that is defined through user interaction</p>
+            <p class="fragment" style="text-align: left">Web App enabled website to have dynamic content, along with the capability to process data and user input</p>
+          </section>
+        </section>
+        <section>
+          <section><h2>How does a Web App operate?</h2></section>
+          <section>
+            <h3>Behind the scenes</h3>
+            <p class="fragment" style="text-align: left">Under the hood, A Web App would need to be hosted on a machine with computing power (to process data)</p>
+            <p class="fragment" style="text-align: left">The machine will expose some communication protocol (HTTP) to allow everyone to make requests to the Web App</p>
+            <p class="fragment" style="text-align: left">As users making requests from their browser, the Web App will respond with appropriate content</p>
+          </section>
+          <section>
+            <h3>Web App data architecture</h3>
+            <p class="fragment" style="text-align: left">There are a few different approach for processing and displaying data in Web App</p>
+            <ul style="text-align: left">
+              <li class="fragment" style="text-align: left">Component-based Architecture</li>
+              <li class="fragment" style="text-align: left">Model-View-Controller Architecture</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section><h2>The Model-View-Controller architecture (MVC)</h2></section>
+          <section>
+            <h3>MVC Architecture</h3>
+            <p class="fragment" style="text-align: left">Common software pattern with the aim to modularize application logic</p>
+            <p class="fragment" style="text-align: left">The logic in MVC Web App is separated into 3 parts: Controllers, Models and Views</p>
+          </section>
+          <section>
+            <h3>MVC Architecture</h3>
+            <ul style="font-size: 24px">
+                <li class="fragment" style="text-align: left"><b>Controllers:</b> receive requests from users to update data in models and render views accordingly</li>
+                <li class="fragment" style="text-align: left"><b>Models:</b> interact with raw data from multiple source (i.e: database, external sources, etc)</li>
+                <li class="fragment" style="text-align: left"><b>Views:</b> display content to users based on responses from controller and data from models</li>
+            </ul>
+            <img class="fragment" src="lib/assets/MVC-Architecture-in-an-application.png" height="300px" />
+          </section>
+        </section>
+        <section>
+          <section><h2>Rails Web App</h2></section>
+          <section>
+            <h3>Directory Structure</h3>
+            <pre ><code class="hljs" data-trim style="font-size: 16px; height: 1000px; width: 1000px">
+            ├── app/                 # Application Logic
+            │   ├── assets/               # Resources for the applications (styling, images, etc)
+            │   ├── controllers/          # Controller classes, handle web requests from users
+            │   ├── helpers/              # Helper classes, assist function for controller, model and views
+            │   ├── models/               # Model classes, interacted with database/external sources
+            │   └── views/                # View template, combine with data to generate HTML for user's browsers
+            ├── config/              # Configuration for the application (routing, database settings, etc)     
+            ├── db/                  # Database for the application
+            ├── Gemfile              # Application's dependencies declaration
+            ├── lib/                 # Application's dependencies
+            ├── log/                 # Logging errors for application
+            ├── public/              # Static content of the application
+            ├── Rakefile             # Application build instruction
+            ├── test/                # Automated testing for the application
+            └── vendor/              # Third party's library
+            </code></pre>
+          </section>
+          <section>
+            <h2>Rails in action (DEMO)</h2>
+          </section>
+          <section>
+            <h3>Best Practices in Rails</h3>
+            <ul style="text-align: left">
+              <li class="fragment">DRY (Don't Repeat Yourself)</li>
+              <li class="fragment">Strictly enforce your architecture</li>
+              <li class="fragment">Utilize helpers to keep views, and controllers cleaner</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h3>Summary</h3>
+            <p class="fragment" style="text-align: left">Web Application are website that can provide dynamic content based user interaction</p>
+            <p class="fragment" style="text-align: left">MVC architecture allows web application logic to be separated, making it easier to develop and scale</p>
+            <p class="fragment" style="text-align: left">Rails helps develop Web App with MVC architecture much faster and easier</p>
+          </section>
+        </section>
+        <section>
+          <section><h2>Question?</h2></section>
+        </section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        dependencies: [
+          { src: "plugin/markdown/marked.js" },
+          { src: "plugin/markdown/markdown.js" },
+          { src: "plugin/notes/notes.js", async: true },
+          {
+            src: "plugin/highlight/highlight.js",
+            async: true,
+            callback: function() {
+              hljs.initHighlightingOnLoad();
+            }
+          }
+        ]
+      });
+    </script>
+  </body>
+</html>
