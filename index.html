@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-    <title>reveal.js</title>
+    <title>Intro to Web App</title>
 
     <link rel="stylesheet" href="css/reveal.css" />
     <link rel="stylesheet" href="css/theme/night.css" />
@@ -48,32 +48,44 @@
           <section>...A little bit of history</section>
           <section>
             <h3>Static Website</h3>
-            <p class="fragment" style="text-align: left">In the early age of web development, we need a way display data to our users</p>
-            <p class="fragment" style="text-align: left">thus static website was created, built with HTML/CSS &amp JavaScript, to serve users a set of defined content</p>
+            <aside class="notes">
+              - In the early age of web development, we need a way display data to our users <br/>
+              - thus static website was created, built with HTML/CSS &amp JavaScript, to serve users a set of defined content <br/>
+              [ENTER] This is how it works
+            </aside>
+            <img class="fragment" src="lib/assets/staticwebsite.png" />
           </section>
           <section>
             <h3>Problem Arise</h3>
             <p class="fragment" style="text-align: left">As the internet become more popular, we want to do even more complex things with our website</p>
-            <ul style="text-align: left">
-            <li class="fragment">What if we want to show/serve user different content depends on who they are?</li>
-            <li class="fragment">What if we want to have more interaction between our users and our content?</li>
-            <li class="fragment">What if we want to process data &amp user inputs through the content we provided?</li>     
-            </ul>
+            <aside class="notes">
+              - What if we want to show/serve user different content depends on who they are?<br/>
+              - What if we want to have more interaction between our users and our content?<br/>
+              - What if we want to process data &amp user inputs through the content we provided?<br/>     
+            </aside>
+            <img class="fragment" width="400" src="lib/assets/web-app-portal.png" />
+            <img class="fragment" style="margin-left: 100px" src="lib/assets/webappexample.jpg" />
           </section>
           <section>
             <h3>Enter Website Application</h3>
-            <p class="fragment" style="text-align: left">Website Application (or Web App) was created to solve these problems</p>
-            <p class="fragment" style="text-align: left">At its core, Web App is simply just a website that is defined through user interaction</p>
-            <p class="fragment" style="text-align: left">Web App enabled website to have dynamic content, along with the capability to process data and user input</p>
+            <aside class="notes">
+              - Website Application (or Web App) was created to solve these problems<br/>
+              - At its core, Web App is simply just a website that is defined through user interaction<br/>
+              - Web App enabled website to have dynamic content, along with the capability to process data and user input<br/>
+            </aside>
+            <img class="fragment" src="lib/assets/webapp.png"/>
           </section>
         </section>
         <section>
           <section><h2>How does a Web App operate?</h2></section>
           <section>
             <h3>Behind the scenes</h3>
-            <p class="fragment" style="text-align: left">Under the hood, A Web App would need to be hosted on a machine with computing power (to process data)</p>
-            <p class="fragment" style="text-align: left">The machine will expose some communication protocol (HTTP) to allow everyone to make requests to the Web App</p>
-            <p class="fragment" style="text-align: left">As users making requests from their browser, the Web App will respond with appropriate content</p>
+            <aside class="notes">
+              - Under the hood, A Web App would need to be hosted on a machine with computing power (to process data)<br />
+              - The machine will expose some communication protocol (HTTP) to allow everyone to make requests to the Web App<br />
+              - As users making requests from their browser, the Web App will respond with appropriate content<br />
+            </aside>
+            <img class="fragment" src="lib/assets/http.png" />
           </section>
           <section>
             <h3>Web App data architecture</h3>
@@ -105,22 +117,20 @@
           <section><h2>Rails Web App</h2></section>
           <section>
             <h3>Directory Structure</h3>
-            <pre ><code class="hljs" data-trim style="font-size: 16px; height: 1000px; width: 1000px">
-            ├── app/                 # Application Logic
-            │   ├── assets/               # Resources for the applications (styling, images, etc)
-            │   ├── controllers/          # Controller classes, handle web requests from users
-            │   ├── helpers/              # Helper classes, assist function for controller, model and views
-            │   ├── models/               # Model classes, interacted with database/external sources
-            │   └── views/                # View template, combine with data to generate HTML for user's browsers
-            ├── config/              # Configuration for the application (routing, database settings, etc)     
-            ├── db/                  # Database for the application
-            ├── Gemfile              # Application's dependencies declaration
-            ├── lib/                 # Application's dependencies
-            ├── log/                 # Logging errors for application
-            ├── public/              # Static content of the application
-            ├── Rakefile             # Application build instruction
-            ├── test/                # Automated testing for the application
-            └── vendor/              # Third party's library
+            <aside class="notes">
+              Upon initialization, there are many different folder and it can be very initimidating. <br />
+              However, for majority of the time,  we only need to focus on a few of those <br />
+            </aside>
+            <pre class="fragment" style="text-align: left"><code class="hljs" data-trim style="font-size: 24px; margin-left: -250px; height: 1000px; width: 1400px">
+        ├── app/                 # Application Logic
+        │   ├── assets/               # Resources for the applications (styling, images, etc)
+        │   ├── controllers/          # Controller classes, handle web requests from users
+        │   ├── helpers/              # Helper classes, assist function for controller, model and views
+        │   ├── models/               # Model classes, interacted with database/external sources
+        │   └── views/                # View template, use to generate HTML for user's browsers
+        ├── db/                  # Database for the application
+        ├── config/              # Configuration for the application (routing, database settings, etc)    
+        └── {...other folders...}
             </code></pre>
           </section>
           <section>
